@@ -1,0 +1,7050 @@
+{
+  "nodes": [
+    {
+      "op": "null", 
+      "name": "data", 
+      "inputs": []
+    }, 
+    {
+      "op": "_arange", 
+      "name": "_arange0", 
+      "attr": {
+        "dtype": "float32", 
+        "repeat": "1", 
+        "start": "0", 
+        "step": "1.0", 
+        "stop": "480"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Reshape", 
+      "name": "reshape0", 
+      "attr": {"shape": "(1, 1, 1, 480)"}, 
+      "inputs": [[1, 0, 0]]
+    }, 
+    {
+      "op": "broadcast_to", 
+      "name": "broadcast_to0", 
+      "attr": {"shape": "(2, 1, 480, 480)"}, 
+      "inputs": [[2, 0, 0]]
+    }, 
+    {
+      "op": "_div_scalar", 
+      "name": "_divscalar0", 
+      "attr": {"scalar": "479.0"}, 
+      "inputs": [[3, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar0", 
+      "attr": {"scalar": "2.0"}, 
+      "inputs": [[4, 0, 0]]
+    }, 
+    {
+      "op": "_minus_scalar", 
+      "name": "_minusscalar0", 
+      "attr": {"scalar": "1.0"}, 
+      "inputs": [[5, 0, 0]]
+    }, 
+    {
+      "op": "_arange", 
+      "name": "_arange1", 
+      "attr": {
+        "dtype": "float32", 
+        "repeat": "1", 
+        "start": "0", 
+        "step": "1.0", 
+        "stop": "480"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Reshape", 
+      "name": "reshape1", 
+      "attr": {"shape": "(1, 1, 480, 1)"}, 
+      "inputs": [[7, 0, 0]]
+    }, 
+    {
+      "op": "broadcast_to", 
+      "name": "broadcast_to1", 
+      "attr": {"shape": "(2, 1, 480, 480)"}, 
+      "inputs": [[8, 0, 0]]
+    }, 
+    {
+      "op": "_div_scalar", 
+      "name": "_divscalar1", 
+      "attr": {"scalar": "479.0"}, 
+      "inputs": [[9, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar1", 
+      "attr": {"scalar": "2.0"}, 
+      "inputs": [[10, 0, 0]]
+    }, 
+    {
+      "op": "_minus_scalar", 
+      "name": "_minusscalar1", 
+      "attr": {"scalar": "1.0"}, 
+      "inputs": [[11, 0, 0]]
+    }, 
+    {
+      "op": "Concat", 
+      "name": "concat0", 
+      "attr": {
+        "dim": "1", 
+        "num_args": "2"
+      }, 
+      "inputs": [[6, 0, 0], [12, 0, 0]]
+    }, 
+    {
+      "op": "expand_dims", 
+      "name": "expand_dims0", 
+      "attr": {"axis": "0"}, 
+      "inputs": [[13, 0, 0]]
+    }, 
+    {
+      "op": "broadcast_to", 
+      "name": "broadcast_to4", 
+      "attr": {"shape": "(5, 2, 2, 480, 480)"}, 
+      "inputs": [[14, 0, 0]]
+    }, 
+    {
+      "op": "_ones", 
+      "name": "_ones0", 
+      "attr": {
+        "dtype": "float32", 
+        "shape": "(5, 2, 1, 480, 480)"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Concat", 
+      "name": "concat2", 
+      "attr": {
+        "dim": "2", 
+        "num_args": "3"
+      }, 
+      "inputs": [[0, 0, 0], [15, 0, 0], [16, 0, 0]]
+    }, 
+    {
+      "op": "Reshape", 
+      "name": "reshape4", 
+      "attr": {
+        "reverse": "True", 
+        "shape": "(-1, 0, 0, 0)"
+      }, 
+      "inputs": [[17, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "econv1_weight", 
+      "attr": {"__dtype__": "0"}, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "econv1_bias", 
+      "attr": {
+        "__dtype__": "0", 
+        "__wd_mult__": "0.0"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "econv1", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(7, 7)", 
+        "no_bias": "False", 
+        "num_filter": "8", 
+        "pad": "(1, 1)", 
+        "stride": "(5, 5)", 
+        "workspace": "256"
+      }, 
+      "inputs": [[18, 0, 0], [19, 0, 0], [20, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "econv1_leaky", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[21, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel0", 
+      "attr": {
+        "axis": "0", 
+        "num_outputs": "5"
+      }, 
+      "inputs": [[22, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn1_0_i2h_weight", 
+      "attr": {"__lr_mult__": "1.0"}, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn1_0_i2h_bias", 
+      "attr": {"__lr_mult__": "1.0"}, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn1_0__t4_i2h", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "[3, 3]", 
+        "num_filter": "192", 
+        "pad": "[1, 1]", 
+        "stride": "(1, 1)"
+      }, 
+      "inputs": [[23, 4, 0], [24, 0, 0], [25, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel9", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "3"
+      }, 
+      "inputs": [[26, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn1_0__t3_i2h", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "[3, 3]", 
+        "num_filter": "192", 
+        "pad": "[1, 1]", 
+        "stride": "(1, 1)"
+      }, 
+      "inputs": [[23, 3, 0], [24, 0, 0], [25, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel7", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "3"
+      }, 
+      "inputs": [[28, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn1_0__t2_i2h", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "[3, 3]", 
+        "num_filter": "192", 
+        "pad": "[1, 1]", 
+        "stride": "(1, 1)"
+      }, 
+      "inputs": [[23, 2, 0], [24, 0, 0], [25, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel5", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "3"
+      }, 
+      "inputs": [[30, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn1_0__t1_i2h", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "[3, 3]", 
+        "num_filter": "192", 
+        "pad": "[1, 1]", 
+        "stride": "(1, 1)"
+      }, 
+      "inputs": [[23, 1, 0], [24, 0, 0], [25, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel3", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "3"
+      }, 
+      "inputs": [[32, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn1_0__t0_i2h", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "[3, 3]", 
+        "num_filter": "192", 
+        "pad": "[1, 1]", 
+        "stride": "(1, 1)"
+      }, 
+      "inputs": [[23, 0, 0], [24, 0, 0], [25, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel1", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "3"
+      }, 
+      "inputs": [[34, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn1_begin_state_h", 
+      "attr": {
+        "__layout__": "NCHW", 
+        "__shape__": "(2, 64, 96, 96)"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "split0", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "1"
+      }, 
+      "inputs": [[36, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn1_0_i2f_conv1_weight", 
+      "attr": {"__lr_mult__": "1.0"}, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn1_0_i2f_conv1_bias", 
+      "attr": {"__lr_mult__": "1.0"}, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn1_0__t0_i2f_conv1", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(5, 5)", 
+        "num_filter": "32", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[23, 0, 0], [38, 0, 0], [39, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn1_0_h2f_conv1_weight", 
+      "attr": {"__lr_mult__": "1.0"}, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn1_0_h2f_conv1_bias", 
+      "attr": {"__lr_mult__": "1.0"}, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn1_0__t0_h2f_conv1", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(5, 5)", 
+        "num_filter": "32", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[37, 0, 0], [41, 0, 0], [42, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus0", 
+      "inputs": [[40, 0, 0], [43, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "leakyrelu0", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[44, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn1_0_f_out_weight", 
+      "attr": {
+        "__init__": "[\"zero\", {}]", 
+        "__lr_mult__": "1.0"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn1_0_f_out_bias", 
+      "attr": {
+        "__init__": "[\"zero\", {}]", 
+        "__lr_mult__": "1.0"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "convolution0", 
+      "attr": {
+        "kernel": "(5, 5)", 
+        "num_filter": "26", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[45, 0, 0], [46, 0, 0], [47, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "split1", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "13"
+      }, 
+      "inputs": [[48, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar4", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[49, 0, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator0", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[50, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler0", 
+      "inputs": [[37, 0, 0], [51, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar5", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[49, 1, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator1", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[53, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler1", 
+      "inputs": [[37, 0, 0], [54, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar6", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[49, 2, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator2", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[56, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler2", 
+      "inputs": [[37, 0, 0], [57, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar7", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[49, 3, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator3", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[59, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler3", 
+      "inputs": [[37, 0, 0], [60, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar8", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[49, 4, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator4", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[62, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler4", 
+      "inputs": [[37, 0, 0], [63, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar9", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[49, 5, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator5", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[65, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler5", 
+      "inputs": [[37, 0, 0], [66, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar10", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[49, 6, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator6", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[68, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler6", 
+      "inputs": [[37, 0, 0], [69, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar11", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[49, 7, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator7", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[71, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler7", 
+      "inputs": [[37, 0, 0], [72, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar12", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[49, 8, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator8", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[74, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler8", 
+      "inputs": [[37, 0, 0], [75, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar13", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[49, 9, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator9", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[77, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler9", 
+      "inputs": [[37, 0, 0], [78, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar14", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[49, 10, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator10", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[80, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler10", 
+      "inputs": [[37, 0, 0], [81, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar15", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[49, 11, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator11", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[83, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler11", 
+      "inputs": [[37, 0, 0], [84, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar16", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[49, 12, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator12", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[86, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler12", 
+      "inputs": [[37, 0, 0], [87, 0, 0]]
+    }, 
+    {
+      "op": "Concat", 
+      "name": "concat3", 
+      "attr": {
+        "dim": "1", 
+        "num_args": "13"
+      }, 
+      "inputs": [
+        [52, 0, 0], 
+        [55, 0, 0], 
+        [58, 0, 0], 
+        [61, 0, 0], 
+        [64, 0, 0], 
+        [67, 0, 0], 
+        [70, 0, 0], 
+        [73, 0, 0], 
+        [76, 0, 0], 
+        [79, 0, 0], 
+        [82, 0, 0], 
+        [85, 0, 0], 
+        [88, 0, 0]
+      ]
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn1_0_h2h_weight", 
+      "attr": {"__lr_mult__": "1.0"}, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn1_0_h2h_bias", 
+      "attr": {"__lr_mult__": "1.0"}, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn1_0__t0_h2h", 
+      "attr": {
+        "kernel": "(1, 1)", 
+        "num_filter": "192"
+      }, 
+      "inputs": [[89, 0, 0], [90, 0, 0], [91, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel2", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "3"
+      }, 
+      "inputs": [[92, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus2", 
+      "inputs": [[35, 1, 0], [93, 1, 0]]
+    }, 
+    {
+      "op": "Activation", 
+      "name": "ebrnn1_0__t0_u", 
+      "attr": {"act_type": "sigmoid"}, 
+      "inputs": [[94, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul1", 
+      "inputs": [[95, 0, 0], [37, 0, 0]]
+    }, 
+    {
+      "op": "_rminus_scalar", 
+      "name": "_rminusscalar0", 
+      "attr": {"scalar": "1"}, 
+      "inputs": [[95, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus1", 
+      "inputs": [[35, 0, 0], [93, 0, 0]]
+    }, 
+    {
+      "op": "Activation", 
+      "name": "ebrnn1_0__t0_r", 
+      "attr": {"act_type": "sigmoid"}, 
+      "inputs": [[98, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul0", 
+      "inputs": [[99, 0, 0], [93, 2, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus3", 
+      "inputs": [[35, 2, 0], [100, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "ebrnn1_0__t0_h_leaky", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[101, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul2", 
+      "inputs": [[97, 0, 0], [102, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus4", 
+      "inputs": [[96, 0, 0], [103, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn1_0__t1_i2f_conv1", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(5, 5)", 
+        "num_filter": "32", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[23, 1, 0], [38, 0, 0], [39, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn1_0__t1_h2f_conv1", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(5, 5)", 
+        "num_filter": "32", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[104, 0, 0], [41, 0, 0], [42, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus5", 
+      "inputs": [[105, 0, 0], [106, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "leakyrelu1", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[107, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "convolution1", 
+      "attr": {
+        "kernel": "(5, 5)", 
+        "num_filter": "26", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[108, 0, 0], [46, 0, 0], [47, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "split2", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "13"
+      }, 
+      "inputs": [[109, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar17", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[110, 0, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator13", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[111, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler13", 
+      "inputs": [[104, 0, 0], [112, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar18", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[110, 1, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator14", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[114, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler14", 
+      "inputs": [[104, 0, 0], [115, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar19", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[110, 2, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator15", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[117, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler15", 
+      "inputs": [[104, 0, 0], [118, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar20", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[110, 3, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator16", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[120, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler16", 
+      "inputs": [[104, 0, 0], [121, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar21", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[110, 4, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator17", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[123, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler17", 
+      "inputs": [[104, 0, 0], [124, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar22", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[110, 5, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator18", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[126, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler18", 
+      "inputs": [[104, 0, 0], [127, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar23", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[110, 6, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator19", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[129, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler19", 
+      "inputs": [[104, 0, 0], [130, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar24", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[110, 7, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator20", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[132, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler20", 
+      "inputs": [[104, 0, 0], [133, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar25", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[110, 8, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator21", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[135, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler21", 
+      "inputs": [[104, 0, 0], [136, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar26", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[110, 9, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator22", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[138, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler22", 
+      "inputs": [[104, 0, 0], [139, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar27", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[110, 10, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator23", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[141, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler23", 
+      "inputs": [[104, 0, 0], [142, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar28", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[110, 11, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator24", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[144, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler24", 
+      "inputs": [[104, 0, 0], [145, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar29", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[110, 12, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator25", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[147, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler25", 
+      "inputs": [[104, 0, 0], [148, 0, 0]]
+    }, 
+    {
+      "op": "Concat", 
+      "name": "concat4", 
+      "attr": {
+        "dim": "1", 
+        "num_args": "13"
+      }, 
+      "inputs": [
+        [113, 0, 0], 
+        [116, 0, 0], 
+        [119, 0, 0], 
+        [122, 0, 0], 
+        [125, 0, 0], 
+        [128, 0, 0], 
+        [131, 0, 0], 
+        [134, 0, 0], 
+        [137, 0, 0], 
+        [140, 0, 0], 
+        [143, 0, 0], 
+        [146, 0, 0], 
+        [149, 0, 0]
+      ]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn1_0__t1_h2h", 
+      "attr": {
+        "kernel": "(1, 1)", 
+        "num_filter": "192"
+      }, 
+      "inputs": [[150, 0, 0], [90, 0, 0], [91, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel4", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "3"
+      }, 
+      "inputs": [[151, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus7", 
+      "inputs": [[33, 1, 0], [152, 1, 0]]
+    }, 
+    {
+      "op": "Activation", 
+      "name": "ebrnn1_0__t1_u", 
+      "attr": {"act_type": "sigmoid"}, 
+      "inputs": [[153, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul4", 
+      "inputs": [[154, 0, 0], [104, 0, 0]]
+    }, 
+    {
+      "op": "_rminus_scalar", 
+      "name": "_rminusscalar1", 
+      "attr": {"scalar": "1"}, 
+      "inputs": [[154, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus6", 
+      "inputs": [[33, 0, 0], [152, 0, 0]]
+    }, 
+    {
+      "op": "Activation", 
+      "name": "ebrnn1_0__t1_r", 
+      "attr": {"act_type": "sigmoid"}, 
+      "inputs": [[157, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul3", 
+      "inputs": [[158, 0, 0], [152, 2, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus8", 
+      "inputs": [[33, 2, 0], [159, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "ebrnn1_0__t1_h_leaky", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[160, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul5", 
+      "inputs": [[156, 0, 0], [161, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus9", 
+      "inputs": [[155, 0, 0], [162, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn1_0__t2_i2f_conv1", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(5, 5)", 
+        "num_filter": "32", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[23, 2, 0], [38, 0, 0], [39, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn1_0__t2_h2f_conv1", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(5, 5)", 
+        "num_filter": "32", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[163, 0, 0], [41, 0, 0], [42, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus10", 
+      "inputs": [[164, 0, 0], [165, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "leakyrelu2", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[166, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "convolution2", 
+      "attr": {
+        "kernel": "(5, 5)", 
+        "num_filter": "26", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[167, 0, 0], [46, 0, 0], [47, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "split3", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "13"
+      }, 
+      "inputs": [[168, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar30", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[169, 0, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator26", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[170, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler26", 
+      "inputs": [[163, 0, 0], [171, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar31", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[169, 1, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator27", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[173, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler27", 
+      "inputs": [[163, 0, 0], [174, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar32", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[169, 2, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator28", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[176, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler28", 
+      "inputs": [[163, 0, 0], [177, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar33", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[169, 3, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator29", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[179, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler29", 
+      "inputs": [[163, 0, 0], [180, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar34", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[169, 4, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator30", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[182, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler30", 
+      "inputs": [[163, 0, 0], [183, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar35", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[169, 5, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator31", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[185, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler31", 
+      "inputs": [[163, 0, 0], [186, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar36", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[169, 6, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator32", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[188, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler32", 
+      "inputs": [[163, 0, 0], [189, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar37", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[169, 7, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator33", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[191, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler33", 
+      "inputs": [[163, 0, 0], [192, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar38", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[169, 8, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator34", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[194, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler34", 
+      "inputs": [[163, 0, 0], [195, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar39", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[169, 9, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator35", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[197, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler35", 
+      "inputs": [[163, 0, 0], [198, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar40", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[169, 10, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator36", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[200, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler36", 
+      "inputs": [[163, 0, 0], [201, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar41", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[169, 11, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator37", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[203, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler37", 
+      "inputs": [[163, 0, 0], [204, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar42", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[169, 12, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator38", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[206, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler38", 
+      "inputs": [[163, 0, 0], [207, 0, 0]]
+    }, 
+    {
+      "op": "Concat", 
+      "name": "concat5", 
+      "attr": {
+        "dim": "1", 
+        "num_args": "13"
+      }, 
+      "inputs": [
+        [172, 0, 0], 
+        [175, 0, 0], 
+        [178, 0, 0], 
+        [181, 0, 0], 
+        [184, 0, 0], 
+        [187, 0, 0], 
+        [190, 0, 0], 
+        [193, 0, 0], 
+        [196, 0, 0], 
+        [199, 0, 0], 
+        [202, 0, 0], 
+        [205, 0, 0], 
+        [208, 0, 0]
+      ]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn1_0__t2_h2h", 
+      "attr": {
+        "kernel": "(1, 1)", 
+        "num_filter": "192"
+      }, 
+      "inputs": [[209, 0, 0], [90, 0, 0], [91, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel6", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "3"
+      }, 
+      "inputs": [[210, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus12", 
+      "inputs": [[31, 1, 0], [211, 1, 0]]
+    }, 
+    {
+      "op": "Activation", 
+      "name": "ebrnn1_0__t2_u", 
+      "attr": {"act_type": "sigmoid"}, 
+      "inputs": [[212, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul7", 
+      "inputs": [[213, 0, 0], [163, 0, 0]]
+    }, 
+    {
+      "op": "_rminus_scalar", 
+      "name": "_rminusscalar2", 
+      "attr": {"scalar": "1"}, 
+      "inputs": [[213, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus11", 
+      "inputs": [[31, 0, 0], [211, 0, 0]]
+    }, 
+    {
+      "op": "Activation", 
+      "name": "ebrnn1_0__t2_r", 
+      "attr": {"act_type": "sigmoid"}, 
+      "inputs": [[216, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul6", 
+      "inputs": [[217, 0, 0], [211, 2, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus13", 
+      "inputs": [[31, 2, 0], [218, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "ebrnn1_0__t2_h_leaky", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[219, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul8", 
+      "inputs": [[215, 0, 0], [220, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus14", 
+      "inputs": [[214, 0, 0], [221, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn1_0__t3_i2f_conv1", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(5, 5)", 
+        "num_filter": "32", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[23, 3, 0], [38, 0, 0], [39, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn1_0__t3_h2f_conv1", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(5, 5)", 
+        "num_filter": "32", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[222, 0, 0], [41, 0, 0], [42, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus15", 
+      "inputs": [[223, 0, 0], [224, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "leakyrelu3", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[225, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "convolution3", 
+      "attr": {
+        "kernel": "(5, 5)", 
+        "num_filter": "26", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[226, 0, 0], [46, 0, 0], [47, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "split4", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "13"
+      }, 
+      "inputs": [[227, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar43", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[228, 0, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator39", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[229, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler39", 
+      "inputs": [[222, 0, 0], [230, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar44", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[228, 1, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator40", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[232, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler40", 
+      "inputs": [[222, 0, 0], [233, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar45", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[228, 2, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator41", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[235, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler41", 
+      "inputs": [[222, 0, 0], [236, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar46", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[228, 3, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator42", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[238, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler42", 
+      "inputs": [[222, 0, 0], [239, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar47", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[228, 4, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator43", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[241, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler43", 
+      "inputs": [[222, 0, 0], [242, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar48", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[228, 5, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator44", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[244, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler44", 
+      "inputs": [[222, 0, 0], [245, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar49", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[228, 6, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator45", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[247, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler45", 
+      "inputs": [[222, 0, 0], [248, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar50", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[228, 7, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator46", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[250, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler46", 
+      "inputs": [[222, 0, 0], [251, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar51", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[228, 8, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator47", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[253, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler47", 
+      "inputs": [[222, 0, 0], [254, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar52", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[228, 9, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator48", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[256, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler48", 
+      "inputs": [[222, 0, 0], [257, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar53", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[228, 10, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator49", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[259, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler49", 
+      "inputs": [[222, 0, 0], [260, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar54", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[228, 11, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator50", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[262, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler50", 
+      "inputs": [[222, 0, 0], [263, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar55", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[228, 12, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator51", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[265, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler51", 
+      "inputs": [[222, 0, 0], [266, 0, 0]]
+    }, 
+    {
+      "op": "Concat", 
+      "name": "concat6", 
+      "attr": {
+        "dim": "1", 
+        "num_args": "13"
+      }, 
+      "inputs": [
+        [231, 0, 0], 
+        [234, 0, 0], 
+        [237, 0, 0], 
+        [240, 0, 0], 
+        [243, 0, 0], 
+        [246, 0, 0], 
+        [249, 0, 0], 
+        [252, 0, 0], 
+        [255, 0, 0], 
+        [258, 0, 0], 
+        [261, 0, 0], 
+        [264, 0, 0], 
+        [267, 0, 0]
+      ]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn1_0__t3_h2h", 
+      "attr": {
+        "kernel": "(1, 1)", 
+        "num_filter": "192"
+      }, 
+      "inputs": [[268, 0, 0], [90, 0, 0], [91, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel8", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "3"
+      }, 
+      "inputs": [[269, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus17", 
+      "inputs": [[29, 1, 0], [270, 1, 0]]
+    }, 
+    {
+      "op": "Activation", 
+      "name": "ebrnn1_0__t3_u", 
+      "attr": {"act_type": "sigmoid"}, 
+      "inputs": [[271, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul10", 
+      "inputs": [[272, 0, 0], [222, 0, 0]]
+    }, 
+    {
+      "op": "_rminus_scalar", 
+      "name": "_rminusscalar3", 
+      "attr": {"scalar": "1"}, 
+      "inputs": [[272, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus16", 
+      "inputs": [[29, 0, 0], [270, 0, 0]]
+    }, 
+    {
+      "op": "Activation", 
+      "name": "ebrnn1_0__t3_r", 
+      "attr": {"act_type": "sigmoid"}, 
+      "inputs": [[275, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul9", 
+      "inputs": [[276, 0, 0], [270, 2, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus18", 
+      "inputs": [[29, 2, 0], [277, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "ebrnn1_0__t3_h_leaky", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[278, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul11", 
+      "inputs": [[274, 0, 0], [279, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus19", 
+      "inputs": [[273, 0, 0], [280, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn1_0__t4_i2f_conv1", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(5, 5)", 
+        "num_filter": "32", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[23, 4, 0], [38, 0, 0], [39, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn1_0__t4_h2f_conv1", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(5, 5)", 
+        "num_filter": "32", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[281, 0, 0], [41, 0, 0], [42, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus20", 
+      "inputs": [[282, 0, 0], [283, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "leakyrelu4", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[284, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "convolution4", 
+      "attr": {
+        "kernel": "(5, 5)", 
+        "num_filter": "26", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[285, 0, 0], [46, 0, 0], [47, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "split5", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "13"
+      }, 
+      "inputs": [[286, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar56", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[287, 0, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator52", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[288, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler52", 
+      "inputs": [[281, 0, 0], [289, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar57", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[287, 1, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator53", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[291, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler53", 
+      "inputs": [[281, 0, 0], [292, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar58", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[287, 2, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator54", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[294, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler54", 
+      "inputs": [[281, 0, 0], [295, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar59", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[287, 3, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator55", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[297, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler55", 
+      "inputs": [[281, 0, 0], [298, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar60", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[287, 4, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator56", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[300, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler56", 
+      "inputs": [[281, 0, 0], [301, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar61", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[287, 5, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator57", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[303, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler57", 
+      "inputs": [[281, 0, 0], [304, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar62", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[287, 6, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator58", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[306, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler58", 
+      "inputs": [[281, 0, 0], [307, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar63", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[287, 7, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator59", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[309, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler59", 
+      "inputs": [[281, 0, 0], [310, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar64", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[287, 8, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator60", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[312, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler60", 
+      "inputs": [[281, 0, 0], [313, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar65", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[287, 9, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator61", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[315, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler61", 
+      "inputs": [[281, 0, 0], [316, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar66", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[287, 10, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator62", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[318, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler62", 
+      "inputs": [[281, 0, 0], [319, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar67", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[287, 11, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator63", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[321, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler63", 
+      "inputs": [[281, 0, 0], [322, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar68", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[287, 12, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator64", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[324, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler64", 
+      "inputs": [[281, 0, 0], [325, 0, 0]]
+    }, 
+    {
+      "op": "Concat", 
+      "name": "concat7", 
+      "attr": {
+        "dim": "1", 
+        "num_args": "13"
+      }, 
+      "inputs": [
+        [290, 0, 0], 
+        [293, 0, 0], 
+        [296, 0, 0], 
+        [299, 0, 0], 
+        [302, 0, 0], 
+        [305, 0, 0], 
+        [308, 0, 0], 
+        [311, 0, 0], 
+        [314, 0, 0], 
+        [317, 0, 0], 
+        [320, 0, 0], 
+        [323, 0, 0], 
+        [326, 0, 0]
+      ]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn1_0__t4_h2h", 
+      "attr": {
+        "kernel": "(1, 1)", 
+        "num_filter": "192"
+      }, 
+      "inputs": [[327, 0, 0], [90, 0, 0], [91, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel10", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "3"
+      }, 
+      "inputs": [[328, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus22", 
+      "inputs": [[27, 1, 0], [329, 1, 0]]
+    }, 
+    {
+      "op": "Activation", 
+      "name": "ebrnn1_0__t4_u", 
+      "attr": {"act_type": "sigmoid"}, 
+      "inputs": [[330, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul13", 
+      "inputs": [[331, 0, 0], [281, 0, 0]]
+    }, 
+    {
+      "op": "_rminus_scalar", 
+      "name": "_rminusscalar4", 
+      "attr": {"scalar": "1"}, 
+      "inputs": [[331, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus21", 
+      "inputs": [[27, 0, 0], [329, 0, 0]]
+    }, 
+    {
+      "op": "Activation", 
+      "name": "ebrnn1_0__t4_r", 
+      "attr": {"act_type": "sigmoid"}, 
+      "inputs": [[334, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul12", 
+      "inputs": [[335, 0, 0], [329, 2, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus23", 
+      "inputs": [[27, 2, 0], [336, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "ebrnn1_0__t4_h_leaky", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[337, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul14", 
+      "inputs": [[333, 0, 0], [338, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus24", 
+      "inputs": [[332, 0, 0], [339, 0, 0]]
+    }, 
+    {
+      "op": "Concat", 
+      "name": "concat20", 
+      "attr": {
+        "__layout__": "NCHW", 
+        "dim": "1", 
+        "num_args": "1"
+      }, 
+      "inputs": [[340, 0, 0]]
+    }, 
+    {
+      "op": "Concat", 
+      "name": "concat8", 
+      "attr": {
+        "dim": "0", 
+        "num_args": "5"
+      }, 
+      "inputs": [[104, 0, 0], [163, 0, 0], [222, 0, 0], [281, 0, 0], [340, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "edown1_conv_weight", 
+      "attr": {"__dtype__": "0"}, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "edown1_conv_bias", 
+      "attr": {
+        "__dtype__": "0", 
+        "__wd_mult__": "0.0"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "edown1_conv", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(5, 5)", 
+        "no_bias": "False", 
+        "num_filter": "192", 
+        "pad": "(1, 1)", 
+        "stride": "(3, 3)", 
+        "workspace": "256"
+      }, 
+      "inputs": [[342, 0, 0], [343, 0, 0], [344, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "edown1_conv_leaky", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[345, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel11", 
+      "attr": {
+        "axis": "0", 
+        "num_outputs": "5"
+      }, 
+      "inputs": [[346, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn2_0_i2h_weight", 
+      "attr": {"__lr_mult__": "1.0"}, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn2_0_i2h_bias", 
+      "attr": {"__lr_mult__": "1.0"}, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn2_0__t4_i2h", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "[3, 3]", 
+        "num_filter": "576", 
+        "pad": "[1, 1]", 
+        "stride": "(1, 1)"
+      }, 
+      "inputs": [[347, 4, 0], [348, 0, 0], [349, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel20", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "3"
+      }, 
+      "inputs": [[350, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn2_0__t3_i2h", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "[3, 3]", 
+        "num_filter": "576", 
+        "pad": "[1, 1]", 
+        "stride": "(1, 1)"
+      }, 
+      "inputs": [[347, 3, 0], [348, 0, 0], [349, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel18", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "3"
+      }, 
+      "inputs": [[352, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn2_0__t2_i2h", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "[3, 3]", 
+        "num_filter": "576", 
+        "pad": "[1, 1]", 
+        "stride": "(1, 1)"
+      }, 
+      "inputs": [[347, 2, 0], [348, 0, 0], [349, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel16", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "3"
+      }, 
+      "inputs": [[354, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn2_0__t1_i2h", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "[3, 3]", 
+        "num_filter": "576", 
+        "pad": "[1, 1]", 
+        "stride": "(1, 1)"
+      }, 
+      "inputs": [[347, 1, 0], [348, 0, 0], [349, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel14", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "3"
+      }, 
+      "inputs": [[356, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn2_0__t0_i2h", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "[3, 3]", 
+        "num_filter": "576", 
+        "pad": "[1, 1]", 
+        "stride": "(1, 1)"
+      }, 
+      "inputs": [[347, 0, 0], [348, 0, 0], [349, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel12", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "3"
+      }, 
+      "inputs": [[358, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn2_begin_state_h", 
+      "attr": {
+        "__layout__": "NCHW", 
+        "__shape__": "(2, 192, 32, 32)"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "split6", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "1"
+      }, 
+      "inputs": [[360, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn2_0_i2f_conv1_weight", 
+      "attr": {"__lr_mult__": "1.0"}, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn2_0_i2f_conv1_bias", 
+      "attr": {"__lr_mult__": "1.0"}, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn2_0__t0_i2f_conv1", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(5, 5)", 
+        "num_filter": "32", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[347, 0, 0], [362, 0, 0], [363, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn2_0_h2f_conv1_weight", 
+      "attr": {"__lr_mult__": "1.0"}, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn2_0_h2f_conv1_bias", 
+      "attr": {"__lr_mult__": "1.0"}, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn2_0__t0_h2f_conv1", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(5, 5)", 
+        "num_filter": "32", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[361, 0, 0], [365, 0, 0], [366, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus25", 
+      "inputs": [[364, 0, 0], [367, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "leakyrelu5", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[368, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn2_0_f_out_weight", 
+      "attr": {
+        "__init__": "[\"zero\", {}]", 
+        "__lr_mult__": "1.0"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn2_0_f_out_bias", 
+      "attr": {
+        "__init__": "[\"zero\", {}]", 
+        "__lr_mult__": "1.0"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "convolution5", 
+      "attr": {
+        "kernel": "(5, 5)", 
+        "num_filter": "26", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[369, 0, 0], [370, 0, 0], [371, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "split7", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "13"
+      }, 
+      "inputs": [[372, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar69", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[373, 0, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator65", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[374, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler65", 
+      "inputs": [[361, 0, 0], [375, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar70", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[373, 1, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator66", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[377, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler66", 
+      "inputs": [[361, 0, 0], [378, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar71", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[373, 2, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator67", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[380, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler67", 
+      "inputs": [[361, 0, 0], [381, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar72", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[373, 3, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator68", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[383, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler68", 
+      "inputs": [[361, 0, 0], [384, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar73", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[373, 4, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator69", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[386, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler69", 
+      "inputs": [[361, 0, 0], [387, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar74", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[373, 5, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator70", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[389, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler70", 
+      "inputs": [[361, 0, 0], [390, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar75", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[373, 6, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator71", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[392, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler71", 
+      "inputs": [[361, 0, 0], [393, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar76", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[373, 7, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator72", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[395, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler72", 
+      "inputs": [[361, 0, 0], [396, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar77", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[373, 8, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator73", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[398, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler73", 
+      "inputs": [[361, 0, 0], [399, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar78", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[373, 9, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator74", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[401, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler74", 
+      "inputs": [[361, 0, 0], [402, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar79", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[373, 10, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator75", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[404, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler75", 
+      "inputs": [[361, 0, 0], [405, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar80", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[373, 11, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator76", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[407, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler76", 
+      "inputs": [[361, 0, 0], [408, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar81", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[373, 12, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator77", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[410, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler77", 
+      "inputs": [[361, 0, 0], [411, 0, 0]]
+    }, 
+    {
+      "op": "Concat", 
+      "name": "concat9", 
+      "attr": {
+        "dim": "1", 
+        "num_args": "13"
+      }, 
+      "inputs": [
+        [376, 0, 0], 
+        [379, 0, 0], 
+        [382, 0, 0], 
+        [385, 0, 0], 
+        [388, 0, 0], 
+        [391, 0, 0], 
+        [394, 0, 0], 
+        [397, 0, 0], 
+        [400, 0, 0], 
+        [403, 0, 0], 
+        [406, 0, 0], 
+        [409, 0, 0], 
+        [412, 0, 0]
+      ]
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn2_0_h2h_weight", 
+      "attr": {"__lr_mult__": "1.0"}, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn2_0_h2h_bias", 
+      "attr": {"__lr_mult__": "1.0"}, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn2_0__t0_h2h", 
+      "attr": {
+        "kernel": "(1, 1)", 
+        "num_filter": "576"
+      }, 
+      "inputs": [[413, 0, 0], [414, 0, 0], [415, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel13", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "3"
+      }, 
+      "inputs": [[416, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus27", 
+      "inputs": [[359, 1, 0], [417, 1, 0]]
+    }, 
+    {
+      "op": "Activation", 
+      "name": "ebrnn2_0__t0_u", 
+      "attr": {"act_type": "sigmoid"}, 
+      "inputs": [[418, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul16", 
+      "inputs": [[419, 0, 0], [361, 0, 0]]
+    }, 
+    {
+      "op": "_rminus_scalar", 
+      "name": "_rminusscalar5", 
+      "attr": {"scalar": "1"}, 
+      "inputs": [[419, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus26", 
+      "inputs": [[359, 0, 0], [417, 0, 0]]
+    }, 
+    {
+      "op": "Activation", 
+      "name": "ebrnn2_0__t0_r", 
+      "attr": {"act_type": "sigmoid"}, 
+      "inputs": [[422, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul15", 
+      "inputs": [[423, 0, 0], [417, 2, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus28", 
+      "inputs": [[359, 2, 0], [424, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "ebrnn2_0__t0_h_leaky", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[425, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul17", 
+      "inputs": [[421, 0, 0], [426, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus29", 
+      "inputs": [[420, 0, 0], [427, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn2_0__t1_i2f_conv1", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(5, 5)", 
+        "num_filter": "32", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[347, 1, 0], [362, 0, 0], [363, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn2_0__t1_h2f_conv1", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(5, 5)", 
+        "num_filter": "32", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[428, 0, 0], [365, 0, 0], [366, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus30", 
+      "inputs": [[429, 0, 0], [430, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "leakyrelu6", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[431, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "convolution6", 
+      "attr": {
+        "kernel": "(5, 5)", 
+        "num_filter": "26", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[432, 0, 0], [370, 0, 0], [371, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "split8", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "13"
+      }, 
+      "inputs": [[433, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar82", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[434, 0, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator78", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[435, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler78", 
+      "inputs": [[428, 0, 0], [436, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar83", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[434, 1, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator79", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[438, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler79", 
+      "inputs": [[428, 0, 0], [439, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar84", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[434, 2, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator80", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[441, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler80", 
+      "inputs": [[428, 0, 0], [442, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar85", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[434, 3, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator81", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[444, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler81", 
+      "inputs": [[428, 0, 0], [445, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar86", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[434, 4, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator82", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[447, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler82", 
+      "inputs": [[428, 0, 0], [448, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar87", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[434, 5, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator83", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[450, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler83", 
+      "inputs": [[428, 0, 0], [451, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar88", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[434, 6, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator84", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[453, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler84", 
+      "inputs": [[428, 0, 0], [454, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar89", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[434, 7, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator85", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[456, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler85", 
+      "inputs": [[428, 0, 0], [457, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar90", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[434, 8, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator86", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[459, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler86", 
+      "inputs": [[428, 0, 0], [460, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar91", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[434, 9, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator87", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[462, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler87", 
+      "inputs": [[428, 0, 0], [463, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar92", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[434, 10, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator88", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[465, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler88", 
+      "inputs": [[428, 0, 0], [466, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar93", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[434, 11, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator89", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[468, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler89", 
+      "inputs": [[428, 0, 0], [469, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar94", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[434, 12, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator90", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[471, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler90", 
+      "inputs": [[428, 0, 0], [472, 0, 0]]
+    }, 
+    {
+      "op": "Concat", 
+      "name": "concat10", 
+      "attr": {
+        "dim": "1", 
+        "num_args": "13"
+      }, 
+      "inputs": [
+        [437, 0, 0], 
+        [440, 0, 0], 
+        [443, 0, 0], 
+        [446, 0, 0], 
+        [449, 0, 0], 
+        [452, 0, 0], 
+        [455, 0, 0], 
+        [458, 0, 0], 
+        [461, 0, 0], 
+        [464, 0, 0], 
+        [467, 0, 0], 
+        [470, 0, 0], 
+        [473, 0, 0]
+      ]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn2_0__t1_h2h", 
+      "attr": {
+        "kernel": "(1, 1)", 
+        "num_filter": "576"
+      }, 
+      "inputs": [[474, 0, 0], [414, 0, 0], [415, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel15", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "3"
+      }, 
+      "inputs": [[475, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus32", 
+      "inputs": [[357, 1, 0], [476, 1, 0]]
+    }, 
+    {
+      "op": "Activation", 
+      "name": "ebrnn2_0__t1_u", 
+      "attr": {"act_type": "sigmoid"}, 
+      "inputs": [[477, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul19", 
+      "inputs": [[478, 0, 0], [428, 0, 0]]
+    }, 
+    {
+      "op": "_rminus_scalar", 
+      "name": "_rminusscalar6", 
+      "attr": {"scalar": "1"}, 
+      "inputs": [[478, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus31", 
+      "inputs": [[357, 0, 0], [476, 0, 0]]
+    }, 
+    {
+      "op": "Activation", 
+      "name": "ebrnn2_0__t1_r", 
+      "attr": {"act_type": "sigmoid"}, 
+      "inputs": [[481, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul18", 
+      "inputs": [[482, 0, 0], [476, 2, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus33", 
+      "inputs": [[357, 2, 0], [483, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "ebrnn2_0__t1_h_leaky", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[484, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul20", 
+      "inputs": [[480, 0, 0], [485, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus34", 
+      "inputs": [[479, 0, 0], [486, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn2_0__t2_i2f_conv1", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(5, 5)", 
+        "num_filter": "32", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[347, 2, 0], [362, 0, 0], [363, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn2_0__t2_h2f_conv1", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(5, 5)", 
+        "num_filter": "32", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[487, 0, 0], [365, 0, 0], [366, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus35", 
+      "inputs": [[488, 0, 0], [489, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "leakyrelu7", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[490, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "convolution7", 
+      "attr": {
+        "kernel": "(5, 5)", 
+        "num_filter": "26", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[491, 0, 0], [370, 0, 0], [371, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "split9", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "13"
+      }, 
+      "inputs": [[492, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar95", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[493, 0, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator91", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[494, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler91", 
+      "inputs": [[487, 0, 0], [495, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar96", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[493, 1, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator92", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[497, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler92", 
+      "inputs": [[487, 0, 0], [498, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar97", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[493, 2, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator93", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[500, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler93", 
+      "inputs": [[487, 0, 0], [501, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar98", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[493, 3, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator94", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[503, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler94", 
+      "inputs": [[487, 0, 0], [504, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar99", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[493, 4, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator95", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[506, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler95", 
+      "inputs": [[487, 0, 0], [507, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar100", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[493, 5, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator96", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[509, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler96", 
+      "inputs": [[487, 0, 0], [510, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar101", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[493, 6, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator97", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[512, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler97", 
+      "inputs": [[487, 0, 0], [513, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar102", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[493, 7, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator98", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[515, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler98", 
+      "inputs": [[487, 0, 0], [516, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar103", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[493, 8, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator99", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[518, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler99", 
+      "inputs": [[487, 0, 0], [519, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar104", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[493, 9, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator100", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[521, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler100", 
+      "inputs": [[487, 0, 0], [522, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar105", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[493, 10, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator101", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[524, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler101", 
+      "inputs": [[487, 0, 0], [525, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar106", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[493, 11, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator102", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[527, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler102", 
+      "inputs": [[487, 0, 0], [528, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar107", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[493, 12, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator103", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[530, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler103", 
+      "inputs": [[487, 0, 0], [531, 0, 0]]
+    }, 
+    {
+      "op": "Concat", 
+      "name": "concat11", 
+      "attr": {
+        "dim": "1", 
+        "num_args": "13"
+      }, 
+      "inputs": [
+        [496, 0, 0], 
+        [499, 0, 0], 
+        [502, 0, 0], 
+        [505, 0, 0], 
+        [508, 0, 0], 
+        [511, 0, 0], 
+        [514, 0, 0], 
+        [517, 0, 0], 
+        [520, 0, 0], 
+        [523, 0, 0], 
+        [526, 0, 0], 
+        [529, 0, 0], 
+        [532, 0, 0]
+      ]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn2_0__t2_h2h", 
+      "attr": {
+        "kernel": "(1, 1)", 
+        "num_filter": "576"
+      }, 
+      "inputs": [[533, 0, 0], [414, 0, 0], [415, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel17", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "3"
+      }, 
+      "inputs": [[534, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus37", 
+      "inputs": [[355, 1, 0], [535, 1, 0]]
+    }, 
+    {
+      "op": "Activation", 
+      "name": "ebrnn2_0__t2_u", 
+      "attr": {"act_type": "sigmoid"}, 
+      "inputs": [[536, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul22", 
+      "inputs": [[537, 0, 0], [487, 0, 0]]
+    }, 
+    {
+      "op": "_rminus_scalar", 
+      "name": "_rminusscalar7", 
+      "attr": {"scalar": "1"}, 
+      "inputs": [[537, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus36", 
+      "inputs": [[355, 0, 0], [535, 0, 0]]
+    }, 
+    {
+      "op": "Activation", 
+      "name": "ebrnn2_0__t2_r", 
+      "attr": {"act_type": "sigmoid"}, 
+      "inputs": [[540, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul21", 
+      "inputs": [[541, 0, 0], [535, 2, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus38", 
+      "inputs": [[355, 2, 0], [542, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "ebrnn2_0__t2_h_leaky", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[543, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul23", 
+      "inputs": [[539, 0, 0], [544, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus39", 
+      "inputs": [[538, 0, 0], [545, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn2_0__t3_i2f_conv1", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(5, 5)", 
+        "num_filter": "32", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[347, 3, 0], [362, 0, 0], [363, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn2_0__t3_h2f_conv1", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(5, 5)", 
+        "num_filter": "32", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[546, 0, 0], [365, 0, 0], [366, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus40", 
+      "inputs": [[547, 0, 0], [548, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "leakyrelu8", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[549, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "convolution8", 
+      "attr": {
+        "kernel": "(5, 5)", 
+        "num_filter": "26", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[550, 0, 0], [370, 0, 0], [371, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "split10", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "13"
+      }, 
+      "inputs": [[551, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar108", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[552, 0, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator104", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[553, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler104", 
+      "inputs": [[546, 0, 0], [554, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar109", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[552, 1, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator105", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[556, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler105", 
+      "inputs": [[546, 0, 0], [557, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar110", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[552, 2, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator106", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[559, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler106", 
+      "inputs": [[546, 0, 0], [560, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar111", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[552, 3, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator107", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[562, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler107", 
+      "inputs": [[546, 0, 0], [563, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar112", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[552, 4, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator108", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[565, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler108", 
+      "inputs": [[546, 0, 0], [566, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar113", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[552, 5, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator109", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[568, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler109", 
+      "inputs": [[546, 0, 0], [569, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar114", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[552, 6, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator110", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[571, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler110", 
+      "inputs": [[546, 0, 0], [572, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar115", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[552, 7, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator111", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[574, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler111", 
+      "inputs": [[546, 0, 0], [575, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar116", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[552, 8, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator112", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[577, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler112", 
+      "inputs": [[546, 0, 0], [578, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar117", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[552, 9, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator113", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[580, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler113", 
+      "inputs": [[546, 0, 0], [581, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar118", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[552, 10, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator114", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[583, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler114", 
+      "inputs": [[546, 0, 0], [584, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar119", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[552, 11, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator115", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[586, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler115", 
+      "inputs": [[546, 0, 0], [587, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar120", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[552, 12, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator116", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[589, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler116", 
+      "inputs": [[546, 0, 0], [590, 0, 0]]
+    }, 
+    {
+      "op": "Concat", 
+      "name": "concat12", 
+      "attr": {
+        "dim": "1", 
+        "num_args": "13"
+      }, 
+      "inputs": [
+        [555, 0, 0], 
+        [558, 0, 0], 
+        [561, 0, 0], 
+        [564, 0, 0], 
+        [567, 0, 0], 
+        [570, 0, 0], 
+        [573, 0, 0], 
+        [576, 0, 0], 
+        [579, 0, 0], 
+        [582, 0, 0], 
+        [585, 0, 0], 
+        [588, 0, 0], 
+        [591, 0, 0]
+      ]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn2_0__t3_h2h", 
+      "attr": {
+        "kernel": "(1, 1)", 
+        "num_filter": "576"
+      }, 
+      "inputs": [[592, 0, 0], [414, 0, 0], [415, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel19", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "3"
+      }, 
+      "inputs": [[593, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus42", 
+      "inputs": [[353, 1, 0], [594, 1, 0]]
+    }, 
+    {
+      "op": "Activation", 
+      "name": "ebrnn2_0__t3_u", 
+      "attr": {"act_type": "sigmoid"}, 
+      "inputs": [[595, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul25", 
+      "inputs": [[596, 0, 0], [546, 0, 0]]
+    }, 
+    {
+      "op": "_rminus_scalar", 
+      "name": "_rminusscalar8", 
+      "attr": {"scalar": "1"}, 
+      "inputs": [[596, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus41", 
+      "inputs": [[353, 0, 0], [594, 0, 0]]
+    }, 
+    {
+      "op": "Activation", 
+      "name": "ebrnn2_0__t3_r", 
+      "attr": {"act_type": "sigmoid"}, 
+      "inputs": [[599, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul24", 
+      "inputs": [[600, 0, 0], [594, 2, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus43", 
+      "inputs": [[353, 2, 0], [601, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "ebrnn2_0__t3_h_leaky", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[602, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul26", 
+      "inputs": [[598, 0, 0], [603, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus44", 
+      "inputs": [[597, 0, 0], [604, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn2_0__t4_i2f_conv1", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(5, 5)", 
+        "num_filter": "32", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[347, 4, 0], [362, 0, 0], [363, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn2_0__t4_h2f_conv1", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(5, 5)", 
+        "num_filter": "32", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[605, 0, 0], [365, 0, 0], [366, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus45", 
+      "inputs": [[606, 0, 0], [607, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "leakyrelu9", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[608, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "convolution9", 
+      "attr": {
+        "kernel": "(5, 5)", 
+        "num_filter": "26", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[609, 0, 0], [370, 0, 0], [371, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "split11", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "13"
+      }, 
+      "inputs": [[610, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar121", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[611, 0, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator117", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[612, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler117", 
+      "inputs": [[605, 0, 0], [613, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar122", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[611, 1, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator118", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[615, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler118", 
+      "inputs": [[605, 0, 0], [616, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar123", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[611, 2, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator119", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[618, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler119", 
+      "inputs": [[605, 0, 0], [619, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar124", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[611, 3, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator120", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[621, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler120", 
+      "inputs": [[605, 0, 0], [622, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar125", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[611, 4, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator121", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[624, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler121", 
+      "inputs": [[605, 0, 0], [625, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar126", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[611, 5, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator122", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[627, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler122", 
+      "inputs": [[605, 0, 0], [628, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar127", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[611, 6, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator123", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[630, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler123", 
+      "inputs": [[605, 0, 0], [631, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar128", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[611, 7, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator124", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[633, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler124", 
+      "inputs": [[605, 0, 0], [634, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar129", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[611, 8, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator125", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[636, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler125", 
+      "inputs": [[605, 0, 0], [637, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar130", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[611, 9, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator126", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[639, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler126", 
+      "inputs": [[605, 0, 0], [640, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar131", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[611, 10, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator127", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[642, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler127", 
+      "inputs": [[605, 0, 0], [643, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar132", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[611, 11, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator128", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[645, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler128", 
+      "inputs": [[605, 0, 0], [646, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar133", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[611, 12, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator129", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[648, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler129", 
+      "inputs": [[605, 0, 0], [649, 0, 0]]
+    }, 
+    {
+      "op": "Concat", 
+      "name": "concat13", 
+      "attr": {
+        "dim": "1", 
+        "num_args": "13"
+      }, 
+      "inputs": [
+        [614, 0, 0], 
+        [617, 0, 0], 
+        [620, 0, 0], 
+        [623, 0, 0], 
+        [626, 0, 0], 
+        [629, 0, 0], 
+        [632, 0, 0], 
+        [635, 0, 0], 
+        [638, 0, 0], 
+        [641, 0, 0], 
+        [644, 0, 0], 
+        [647, 0, 0], 
+        [650, 0, 0]
+      ]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn2_0__t4_h2h", 
+      "attr": {
+        "kernel": "(1, 1)", 
+        "num_filter": "576"
+      }, 
+      "inputs": [[651, 0, 0], [414, 0, 0], [415, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel21", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "3"
+      }, 
+      "inputs": [[652, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus47", 
+      "inputs": [[351, 1, 0], [653, 1, 0]]
+    }, 
+    {
+      "op": "Activation", 
+      "name": "ebrnn2_0__t4_u", 
+      "attr": {"act_type": "sigmoid"}, 
+      "inputs": [[654, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul28", 
+      "inputs": [[655, 0, 0], [605, 0, 0]]
+    }, 
+    {
+      "op": "_rminus_scalar", 
+      "name": "_rminusscalar9", 
+      "attr": {"scalar": "1"}, 
+      "inputs": [[655, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus46", 
+      "inputs": [[351, 0, 0], [653, 0, 0]]
+    }, 
+    {
+      "op": "Activation", 
+      "name": "ebrnn2_0__t4_r", 
+      "attr": {"act_type": "sigmoid"}, 
+      "inputs": [[658, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul27", 
+      "inputs": [[659, 0, 0], [653, 2, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus48", 
+      "inputs": [[351, 2, 0], [660, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "ebrnn2_0__t4_h_leaky", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[661, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul29", 
+      "inputs": [[657, 0, 0], [662, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus49", 
+      "inputs": [[656, 0, 0], [663, 0, 0]]
+    }, 
+    {
+      "op": "Concat", 
+      "name": "concat21", 
+      "attr": {
+        "__layout__": "NCHW", 
+        "dim": "1", 
+        "num_args": "1"
+      }, 
+      "inputs": [[664, 0, 0]]
+    }, 
+    {
+      "op": "Concat", 
+      "name": "concat14", 
+      "attr": {
+        "dim": "0", 
+        "num_args": "5"
+      }, 
+      "inputs": [[428, 0, 0], [487, 0, 0], [546, 0, 0], [605, 0, 0], [664, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "edown2_conv_weight", 
+      "attr": {"__dtype__": "0"}, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "edown2_conv_bias", 
+      "attr": {
+        "__dtype__": "0", 
+        "__wd_mult__": "0.0"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "edown2_conv", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(3, 3)", 
+        "no_bias": "False", 
+        "num_filter": "192", 
+        "pad": "(1, 1)", 
+        "stride": "(2, 2)", 
+        "workspace": "256"
+      }, 
+      "inputs": [[666, 0, 0], [667, 0, 0], [668, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "edown2_conv_leaky", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[669, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel22", 
+      "attr": {
+        "axis": "0", 
+        "num_outputs": "5"
+      }, 
+      "inputs": [[670, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn3_0_i2h_weight", 
+      "attr": {"__lr_mult__": "1.0"}, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn3_0_i2h_bias", 
+      "attr": {"__lr_mult__": "1.0"}, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn3_0__t4_i2h", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "[3, 3]", 
+        "num_filter": "576", 
+        "pad": "[1, 1]", 
+        "stride": "(1, 1)"
+      }, 
+      "inputs": [[671, 4, 0], [672, 0, 0], [673, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel31", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "3"
+      }, 
+      "inputs": [[674, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn3_0__t3_i2h", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "[3, 3]", 
+        "num_filter": "576", 
+        "pad": "[1, 1]", 
+        "stride": "(1, 1)"
+      }, 
+      "inputs": [[671, 3, 0], [672, 0, 0], [673, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel29", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "3"
+      }, 
+      "inputs": [[676, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn3_0__t2_i2h", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "[3, 3]", 
+        "num_filter": "576", 
+        "pad": "[1, 1]", 
+        "stride": "(1, 1)"
+      }, 
+      "inputs": [[671, 2, 0], [672, 0, 0], [673, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel27", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "3"
+      }, 
+      "inputs": [[678, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn3_0__t1_i2h", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "[3, 3]", 
+        "num_filter": "576", 
+        "pad": "[1, 1]", 
+        "stride": "(1, 1)"
+      }, 
+      "inputs": [[671, 1, 0], [672, 0, 0], [673, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel25", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "3"
+      }, 
+      "inputs": [[680, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn3_0__t0_i2h", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "[3, 3]", 
+        "num_filter": "576", 
+        "pad": "[1, 1]", 
+        "stride": "(1, 1)"
+      }, 
+      "inputs": [[671, 0, 0], [672, 0, 0], [673, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel23", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "3"
+      }, 
+      "inputs": [[682, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn3_begin_state_h", 
+      "attr": {
+        "__layout__": "NCHW", 
+        "__shape__": "(2, 192, 16, 16)"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "split12", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "1"
+      }, 
+      "inputs": [[684, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn3_0_i2f_conv1_weight", 
+      "attr": {"__lr_mult__": "1.0"}, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn3_0_i2f_conv1_bias", 
+      "attr": {"__lr_mult__": "1.0"}, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn3_0__t0_i2f_conv1", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(5, 5)", 
+        "num_filter": "32", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[671, 0, 0], [686, 0, 0], [687, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn3_0_h2f_conv1_weight", 
+      "attr": {"__lr_mult__": "1.0"}, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn3_0_h2f_conv1_bias", 
+      "attr": {"__lr_mult__": "1.0"}, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn3_0__t0_h2f_conv1", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(5, 5)", 
+        "num_filter": "32", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[685, 0, 0], [689, 0, 0], [690, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus50", 
+      "inputs": [[688, 0, 0], [691, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "leakyrelu10", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[692, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn3_0_f_out_weight", 
+      "attr": {
+        "__init__": "[\"zero\", {}]", 
+        "__lr_mult__": "1.0"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn3_0_f_out_bias", 
+      "attr": {
+        "__init__": "[\"zero\", {}]", 
+        "__lr_mult__": "1.0"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "convolution10", 
+      "attr": {
+        "kernel": "(5, 5)", 
+        "num_filter": "18", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[693, 0, 0], [694, 0, 0], [695, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "split13", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "9"
+      }, 
+      "inputs": [[696, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar134", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[697, 0, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator130", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[698, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler130", 
+      "inputs": [[685, 0, 0], [699, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar135", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[697, 1, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator131", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[701, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler131", 
+      "inputs": [[685, 0, 0], [702, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar136", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[697, 2, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator132", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[704, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler132", 
+      "inputs": [[685, 0, 0], [705, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar137", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[697, 3, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator133", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[707, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler133", 
+      "inputs": [[685, 0, 0], [708, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar138", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[697, 4, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator134", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[710, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler134", 
+      "inputs": [[685, 0, 0], [711, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar139", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[697, 5, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator135", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[713, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler135", 
+      "inputs": [[685, 0, 0], [714, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar140", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[697, 6, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator136", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[716, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler136", 
+      "inputs": [[685, 0, 0], [717, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar141", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[697, 7, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator137", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[719, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler137", 
+      "inputs": [[685, 0, 0], [720, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar142", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[697, 8, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator138", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[722, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler138", 
+      "inputs": [[685, 0, 0], [723, 0, 0]]
+    }, 
+    {
+      "op": "Concat", 
+      "name": "concat15", 
+      "attr": {
+        "dim": "1", 
+        "num_args": "9"
+      }, 
+      "inputs": [[700, 0, 0], [703, 0, 0], [706, 0, 0], [709, 0, 0], [712, 0, 0], [715, 0, 0], [718, 0, 0], [721, 0, 0], [724, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn3_0_h2h_weight", 
+      "attr": {"__lr_mult__": "1.0"}, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "ebrnn3_0_h2h_bias", 
+      "attr": {"__lr_mult__": "1.0"}, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn3_0__t0_h2h", 
+      "attr": {
+        "kernel": "(1, 1)", 
+        "num_filter": "576"
+      }, 
+      "inputs": [[725, 0, 0], [726, 0, 0], [727, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel24", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "3"
+      }, 
+      "inputs": [[728, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus52", 
+      "inputs": [[683, 1, 0], [729, 1, 0]]
+    }, 
+    {
+      "op": "Activation", 
+      "name": "ebrnn3_0__t0_u", 
+      "attr": {"act_type": "sigmoid"}, 
+      "inputs": [[730, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul31", 
+      "inputs": [[731, 0, 0], [685, 0, 0]]
+    }, 
+    {
+      "op": "_rminus_scalar", 
+      "name": "_rminusscalar10", 
+      "attr": {"scalar": "1"}, 
+      "inputs": [[731, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus51", 
+      "inputs": [[683, 0, 0], [729, 0, 0]]
+    }, 
+    {
+      "op": "Activation", 
+      "name": "ebrnn3_0__t0_r", 
+      "attr": {"act_type": "sigmoid"}, 
+      "inputs": [[734, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul30", 
+      "inputs": [[735, 0, 0], [729, 2, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus53", 
+      "inputs": [[683, 2, 0], [736, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "ebrnn3_0__t0_h_leaky", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[737, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul32", 
+      "inputs": [[733, 0, 0], [738, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus54", 
+      "inputs": [[732, 0, 0], [739, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn3_0__t1_i2f_conv1", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(5, 5)", 
+        "num_filter": "32", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[671, 1, 0], [686, 0, 0], [687, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn3_0__t1_h2f_conv1", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(5, 5)", 
+        "num_filter": "32", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[740, 0, 0], [689, 0, 0], [690, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus55", 
+      "inputs": [[741, 0, 0], [742, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "leakyrelu11", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[743, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "convolution11", 
+      "attr": {
+        "kernel": "(5, 5)", 
+        "num_filter": "18", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[744, 0, 0], [694, 0, 0], [695, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "split14", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "9"
+      }, 
+      "inputs": [[745, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar143", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[746, 0, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator139", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[747, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler139", 
+      "inputs": [[740, 0, 0], [748, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar144", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[746, 1, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator140", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[750, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler140", 
+      "inputs": [[740, 0, 0], [751, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar145", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[746, 2, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator141", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[753, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler141", 
+      "inputs": [[740, 0, 0], [754, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar146", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[746, 3, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator142", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[756, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler142", 
+      "inputs": [[740, 0, 0], [757, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar147", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[746, 4, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator143", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[759, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler143", 
+      "inputs": [[740, 0, 0], [760, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar148", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[746, 5, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator144", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[762, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler144", 
+      "inputs": [[740, 0, 0], [763, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar149", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[746, 6, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator145", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[765, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler145", 
+      "inputs": [[740, 0, 0], [766, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar150", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[746, 7, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator146", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[768, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler146", 
+      "inputs": [[740, 0, 0], [769, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar151", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[746, 8, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator147", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[771, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler147", 
+      "inputs": [[740, 0, 0], [772, 0, 0]]
+    }, 
+    {
+      "op": "Concat", 
+      "name": "concat16", 
+      "attr": {
+        "dim": "1", 
+        "num_args": "9"
+      }, 
+      "inputs": [[749, 0, 0], [752, 0, 0], [755, 0, 0], [758, 0, 0], [761, 0, 0], [764, 0, 0], [767, 0, 0], [770, 0, 0], [773, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn3_0__t1_h2h", 
+      "attr": {
+        "kernel": "(1, 1)", 
+        "num_filter": "576"
+      }, 
+      "inputs": [[774, 0, 0], [726, 0, 0], [727, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel26", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "3"
+      }, 
+      "inputs": [[775, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus57", 
+      "inputs": [[681, 1, 0], [776, 1, 0]]
+    }, 
+    {
+      "op": "Activation", 
+      "name": "ebrnn3_0__t1_u", 
+      "attr": {"act_type": "sigmoid"}, 
+      "inputs": [[777, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul34", 
+      "inputs": [[778, 0, 0], [740, 0, 0]]
+    }, 
+    {
+      "op": "_rminus_scalar", 
+      "name": "_rminusscalar11", 
+      "attr": {"scalar": "1"}, 
+      "inputs": [[778, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus56", 
+      "inputs": [[681, 0, 0], [776, 0, 0]]
+    }, 
+    {
+      "op": "Activation", 
+      "name": "ebrnn3_0__t1_r", 
+      "attr": {"act_type": "sigmoid"}, 
+      "inputs": [[781, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul33", 
+      "inputs": [[782, 0, 0], [776, 2, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus58", 
+      "inputs": [[681, 2, 0], [783, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "ebrnn3_0__t1_h_leaky", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[784, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul35", 
+      "inputs": [[780, 0, 0], [785, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus59", 
+      "inputs": [[779, 0, 0], [786, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn3_0__t2_i2f_conv1", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(5, 5)", 
+        "num_filter": "32", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[671, 2, 0], [686, 0, 0], [687, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn3_0__t2_h2f_conv1", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(5, 5)", 
+        "num_filter": "32", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[787, 0, 0], [689, 0, 0], [690, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus60", 
+      "inputs": [[788, 0, 0], [789, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "leakyrelu12", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[790, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "convolution12", 
+      "attr": {
+        "kernel": "(5, 5)", 
+        "num_filter": "18", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[791, 0, 0], [694, 0, 0], [695, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "split15", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "9"
+      }, 
+      "inputs": [[792, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar152", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[793, 0, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator148", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[794, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler148", 
+      "inputs": [[787, 0, 0], [795, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar153", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[793, 1, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator149", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[797, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler149", 
+      "inputs": [[787, 0, 0], [798, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar154", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[793, 2, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator150", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[800, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler150", 
+      "inputs": [[787, 0, 0], [801, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar155", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[793, 3, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator151", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[803, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler151", 
+      "inputs": [[787, 0, 0], [804, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar156", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[793, 4, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator152", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[806, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler152", 
+      "inputs": [[787, 0, 0], [807, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar157", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[793, 5, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator153", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[809, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler153", 
+      "inputs": [[787, 0, 0], [810, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar158", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[793, 6, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator154", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[812, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler154", 
+      "inputs": [[787, 0, 0], [813, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar159", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[793, 7, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator155", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[815, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler155", 
+      "inputs": [[787, 0, 0], [816, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar160", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[793, 8, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator156", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[818, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler156", 
+      "inputs": [[787, 0, 0], [819, 0, 0]]
+    }, 
+    {
+      "op": "Concat", 
+      "name": "concat17", 
+      "attr": {
+        "dim": "1", 
+        "num_args": "9"
+      }, 
+      "inputs": [[796, 0, 0], [799, 0, 0], [802, 0, 0], [805, 0, 0], [808, 0, 0], [811, 0, 0], [814, 0, 0], [817, 0, 0], [820, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn3_0__t2_h2h", 
+      "attr": {
+        "kernel": "(1, 1)", 
+        "num_filter": "576"
+      }, 
+      "inputs": [[821, 0, 0], [726, 0, 0], [727, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel28", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "3"
+      }, 
+      "inputs": [[822, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus62", 
+      "inputs": [[679, 1, 0], [823, 1, 0]]
+    }, 
+    {
+      "op": "Activation", 
+      "name": "ebrnn3_0__t2_u", 
+      "attr": {"act_type": "sigmoid"}, 
+      "inputs": [[824, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul37", 
+      "inputs": [[825, 0, 0], [787, 0, 0]]
+    }, 
+    {
+      "op": "_rminus_scalar", 
+      "name": "_rminusscalar12", 
+      "attr": {"scalar": "1"}, 
+      "inputs": [[825, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus61", 
+      "inputs": [[679, 0, 0], [823, 0, 0]]
+    }, 
+    {
+      "op": "Activation", 
+      "name": "ebrnn3_0__t2_r", 
+      "attr": {"act_type": "sigmoid"}, 
+      "inputs": [[828, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul36", 
+      "inputs": [[829, 0, 0], [823, 2, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus63", 
+      "inputs": [[679, 2, 0], [830, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "ebrnn3_0__t2_h_leaky", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[831, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul38", 
+      "inputs": [[827, 0, 0], [832, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus64", 
+      "inputs": [[826, 0, 0], [833, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn3_0__t3_i2f_conv1", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(5, 5)", 
+        "num_filter": "32", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[671, 3, 0], [686, 0, 0], [687, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn3_0__t3_h2f_conv1", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(5, 5)", 
+        "num_filter": "32", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[834, 0, 0], [689, 0, 0], [690, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus65", 
+      "inputs": [[835, 0, 0], [836, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "leakyrelu13", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[837, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "convolution13", 
+      "attr": {
+        "kernel": "(5, 5)", 
+        "num_filter": "18", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[838, 0, 0], [694, 0, 0], [695, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "split16", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "9"
+      }, 
+      "inputs": [[839, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar161", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[840, 0, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator157", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[841, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler157", 
+      "inputs": [[834, 0, 0], [842, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar162", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[840, 1, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator158", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[844, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler158", 
+      "inputs": [[834, 0, 0], [845, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar163", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[840, 2, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator159", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[847, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler159", 
+      "inputs": [[834, 0, 0], [848, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar164", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[840, 3, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator160", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[850, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler160", 
+      "inputs": [[834, 0, 0], [851, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar165", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[840, 4, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator161", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[853, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler161", 
+      "inputs": [[834, 0, 0], [854, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar166", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[840, 5, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator162", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[856, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler162", 
+      "inputs": [[834, 0, 0], [857, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar167", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[840, 6, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator163", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[859, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler163", 
+      "inputs": [[834, 0, 0], [860, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar168", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[840, 7, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator164", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[862, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler164", 
+      "inputs": [[834, 0, 0], [863, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar169", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[840, 8, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator165", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[865, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler165", 
+      "inputs": [[834, 0, 0], [866, 0, 0]]
+    }, 
+    {
+      "op": "Concat", 
+      "name": "concat18", 
+      "attr": {
+        "dim": "1", 
+        "num_args": "9"
+      }, 
+      "inputs": [[843, 0, 0], [846, 0, 0], [849, 0, 0], [852, 0, 0], [855, 0, 0], [858, 0, 0], [861, 0, 0], [864, 0, 0], [867, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn3_0__t3_h2h", 
+      "attr": {
+        "kernel": "(1, 1)", 
+        "num_filter": "576"
+      }, 
+      "inputs": [[868, 0, 0], [726, 0, 0], [727, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel30", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "3"
+      }, 
+      "inputs": [[869, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus67", 
+      "inputs": [[677, 1, 0], [870, 1, 0]]
+    }, 
+    {
+      "op": "Activation", 
+      "name": "ebrnn3_0__t3_u", 
+      "attr": {"act_type": "sigmoid"}, 
+      "inputs": [[871, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul40", 
+      "inputs": [[872, 0, 0], [834, 0, 0]]
+    }, 
+    {
+      "op": "_rminus_scalar", 
+      "name": "_rminusscalar13", 
+      "attr": {"scalar": "1"}, 
+      "inputs": [[872, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus66", 
+      "inputs": [[677, 0, 0], [870, 0, 0]]
+    }, 
+    {
+      "op": "Activation", 
+      "name": "ebrnn3_0__t3_r", 
+      "attr": {"act_type": "sigmoid"}, 
+      "inputs": [[875, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul39", 
+      "inputs": [[876, 0, 0], [870, 2, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus68", 
+      "inputs": [[677, 2, 0], [877, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "ebrnn3_0__t3_h_leaky", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[878, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul41", 
+      "inputs": [[874, 0, 0], [879, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus69", 
+      "inputs": [[873, 0, 0], [880, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn3_0__t4_i2f_conv1", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(5, 5)", 
+        "num_filter": "32", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[671, 4, 0], [686, 0, 0], [687, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn3_0__t4_h2f_conv1", 
+      "attr": {
+        "dilate": "(1, 1)", 
+        "kernel": "(5, 5)", 
+        "num_filter": "32", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[881, 0, 0], [689, 0, 0], [690, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus70", 
+      "inputs": [[882, 0, 0], [883, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "leakyrelu14", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[884, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "convolution14", 
+      "attr": {
+        "kernel": "(5, 5)", 
+        "num_filter": "18", 
+        "pad": "(2, 2)"
+      }, 
+      "inputs": [[885, 0, 0], [694, 0, 0], [695, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "split17", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "9"
+      }, 
+      "inputs": [[886, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar170", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[887, 0, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator166", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[888, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler166", 
+      "inputs": [[881, 0, 0], [889, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar171", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[887, 1, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator167", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[891, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler167", 
+      "inputs": [[881, 0, 0], [892, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar172", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[887, 2, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator168", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[894, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler168", 
+      "inputs": [[881, 0, 0], [895, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar173", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[887, 3, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator169", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[897, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler169", 
+      "inputs": [[881, 0, 0], [898, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar174", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[887, 4, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator170", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[900, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler170", 
+      "inputs": [[881, 0, 0], [901, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar175", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[887, 5, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator171", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[903, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler171", 
+      "inputs": [[881, 0, 0], [904, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar176", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[887, 6, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator172", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[906, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler172", 
+      "inputs": [[881, 0, 0], [907, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar177", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[887, 7, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator173", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[909, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler173", 
+      "inputs": [[881, 0, 0], [910, 0, 0]]
+    }, 
+    {
+      "op": "_mul_scalar", 
+      "name": "_mulscalar178", 
+      "attr": {"scalar": "-1.0"}, 
+      "inputs": [[887, 8, 0]]
+    }, 
+    {
+      "op": "GridGenerator", 
+      "name": "gridgenerator174", 
+      "attr": {"transform_type": "warp"}, 
+      "inputs": [[912, 0, 0]]
+    }, 
+    {
+      "op": "BilinearSampler", 
+      "name": "bilinearsampler174", 
+      "inputs": [[881, 0, 0], [913, 0, 0]]
+    }, 
+    {
+      "op": "Concat", 
+      "name": "concat19", 
+      "attr": {
+        "dim": "1", 
+        "num_args": "9"
+      }, 
+      "inputs": [[890, 0, 0], [893, 0, 0], [896, 0, 0], [899, 0, 0], [902, 0, 0], [905, 0, 0], [908, 0, 0], [911, 0, 0], [914, 0, 0]]
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "ebrnn3_0__t4_h2h", 
+      "attr": {
+        "kernel": "(1, 1)", 
+        "num_filter": "576"
+      }, 
+      "inputs": [[915, 0, 0], [726, 0, 0], [727, 0, 0]]
+    }, 
+    {
+      "op": "SliceChannel", 
+      "name": "slicechannel32", 
+      "attr": {
+        "axis": "1", 
+        "num_outputs": "3"
+      }, 
+      "inputs": [[916, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus72", 
+      "inputs": [[675, 1, 0], [917, 1, 0]]
+    }, 
+    {
+      "op": "Activation", 
+      "name": "ebrnn3_0__t4_u", 
+      "attr": {"act_type": "sigmoid"}, 
+      "inputs": [[918, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul43", 
+      "inputs": [[919, 0, 0], [881, 0, 0]]
+    }, 
+    {
+      "op": "_rminus_scalar", 
+      "name": "_rminusscalar14", 
+      "attr": {"scalar": "1"}, 
+      "inputs": [[919, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus71", 
+      "inputs": [[675, 0, 0], [917, 0, 0]]
+    }, 
+    {
+      "op": "Activation", 
+      "name": "ebrnn3_0__t4_r", 
+      "attr": {"act_type": "sigmoid"}, 
+      "inputs": [[922, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul42", 
+      "inputs": [[923, 0, 0], [917, 2, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus73", 
+      "inputs": [[675, 2, 0], [924, 0, 0]]
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "ebrnn3_0__t4_h_leaky", 
+      "attr": {"slope": "0.2"}, 
+      "inputs": [[925, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_mul", 
+      "name": "_mul44", 
+      "inputs": [[921, 0, 0], [926, 0, 0]]
+    }, 
+    {
+      "op": "elemwise_add", 
+      "name": "_plus74", 
+      "inputs": [[920, 0, 0], [927, 0, 0]]
+    }, 
+    {
+      "op": "Concat", 
+      "name": "concat22", 
+      "attr": {
+        "__layout__": "NCHW", 
+        "dim": "1", 
+        "num_args": "1"
+      }, 
+      "inputs": [[928, 0, 0]]
+    }
+  ], 
+  "arg_nodes": [
+    0, 
+    19, 
+    20, 
+    24, 
+    25, 
+    36, 
+    38, 
+    39, 
+    41, 
+    42, 
+    46, 
+    47, 
+    90, 
+    91, 
+    343, 
+    344, 
+    348, 
+    349, 
+    360, 
+    362, 
+    363, 
+    365, 
+    366, 
+    370, 
+    371, 
+    414, 
+    415, 
+    667, 
+    668, 
+    672, 
+    673, 
+    684, 
+    686, 
+    687, 
+    689, 
+    690, 
+    694, 
+    695, 
+    726, 
+    727
+  ], 
+  "node_row_ptr": [
+    0, 
+    1, 
+    2, 
+    3, 
+    4, 
+    5, 
+    6, 
+    7, 
+    8, 
+    9, 
+    10, 
+    11, 
+    12, 
+    13, 
+    14, 
+    15, 
+    16, 
+    17, 
+    18, 
+    19, 
+    20, 
+    21, 
+    22, 
+    23, 
+    28, 
+    29, 
+    30, 
+    31, 
+    34, 
+    35, 
+    38, 
+    39, 
+    42, 
+    43, 
+    46, 
+    47, 
+    50, 
+    51, 
+    52, 
+    53, 
+    54, 
+    55, 
+    56, 
+    57, 
+    58, 
+    59, 
+    60, 
+    61, 
+    62, 
+    63, 
+    76, 
+    77, 
+    79, 
+    81, 
+    82, 
+    84, 
+    86, 
+    87, 
+    89, 
+    91, 
+    92, 
+    94, 
+    96, 
+    97, 
+    99, 
+    101, 
+    102, 
+    104, 
+    106, 
+    107, 
+    109, 
+    111, 
+    112, 
+    114, 
+    116, 
+    117, 
+    119, 
+    121, 
+    122, 
+    124, 
+    126, 
+    127, 
+    129, 
+    131, 
+    132, 
+    134, 
+    136, 
+    137, 
+    139, 
+    141, 
+    142, 
+    143, 
+    144, 
+    145, 
+    148, 
+    149, 
+    150, 
+    151, 
+    152, 
+    153, 
+    154, 
+    155, 
+    156, 
+    157, 
+    158, 
+    159, 
+    160, 
+    161, 
+    162, 
+    163, 
+    164, 
+    177, 
+    178, 
+    180, 
+    182, 
+    183, 
+    185, 
+    187, 
+    188, 
+    190, 
+    192, 
+    193, 
+    195, 
+    197, 
+    198, 
+    200, 
+    202, 
+    203, 
+    205, 
+    207, 
+    208, 
+    210, 
+    212, 
+    213, 
+    215, 
+    217, 
+    218, 
+    220, 
+    222, 
+    223, 
+    225, 
+    227, 
+    228, 
+    230, 
+    232, 
+    233, 
+    235, 
+    237, 
+    238, 
+    240, 
+    242, 
+    243, 
+    244, 
+    247, 
+    248, 
+    249, 
+    250, 
+    251, 
+    252, 
+    253, 
+    254, 
+    255, 
+    256, 
+    257, 
+    258, 
+    259, 
+    260, 
+    261, 
+    262, 
+    263, 
+    276, 
+    277, 
+    279, 
+    281, 
+    282, 
+    284, 
+    286, 
+    287, 
+    289, 
+    291, 
+    292, 
+    294, 
+    296, 
+    297, 
+    299, 
+    301, 
+    302, 
+    304, 
+    306, 
+    307, 
+    309, 
+    311, 
+    312, 
+    314, 
+    316, 
+    317, 
+    319, 
+    321, 
+    322, 
+    324, 
+    326, 
+    327, 
+    329, 
+    331, 
+    332, 
+    334, 
+    336, 
+    337, 
+    339, 
+    341, 
+    342, 
+    343, 
+    346, 
+    347, 
+    348, 
+    349, 
+    350, 
+    351, 
+    352, 
+    353, 
+    354, 
+    355, 
+    356, 
+    357, 
+    358, 
+    359, 
+    360, 
+    361, 
+    362, 
+    375, 
+    376, 
+    378, 
+    380, 
+    381, 
+    383, 
+    385, 
+    386, 
+    388, 
+    390, 
+    391, 
+    393, 
+    395, 
+    396, 
+    398, 
+    400, 
+    401, 
+    403, 
+    405, 
+    406, 
+    408, 
+    410, 
+    411, 
+    413, 
+    415, 
+    416, 
+    418, 
+    420, 
+    421, 
+    423, 
+    425, 
+    426, 
+    428, 
+    430, 
+    431, 
+    433, 
+    435, 
+    436, 
+    438, 
+    440, 
+    441, 
+    442, 
+    445, 
+    446, 
+    447, 
+    448, 
+    449, 
+    450, 
+    451, 
+    452, 
+    453, 
+    454, 
+    455, 
+    456, 
+    457, 
+    458, 
+    459, 
+    460, 
+    461, 
+    474, 
+    475, 
+    477, 
+    479, 
+    480, 
+    482, 
+    484, 
+    485, 
+    487, 
+    489, 
+    490, 
+    492, 
+    494, 
+    495, 
+    497, 
+    499, 
+    500, 
+    502, 
+    504, 
+    505, 
+    507, 
+    509, 
+    510, 
+    512, 
+    514, 
+    515, 
+    517, 
+    519, 
+    520, 
+    522, 
+    524, 
+    525, 
+    527, 
+    529, 
+    530, 
+    532, 
+    534, 
+    535, 
+    537, 
+    539, 
+    540, 
+    541, 
+    544, 
+    545, 
+    546, 
+    547, 
+    548, 
+    549, 
+    550, 
+    551, 
+    552, 
+    553, 
+    554, 
+    555, 
+    556, 
+    557, 
+    558, 
+    559, 
+    560, 
+    561, 
+    566, 
+    567, 
+    568, 
+    569, 
+    572, 
+    573, 
+    576, 
+    577, 
+    580, 
+    581, 
+    584, 
+    585, 
+    588, 
+    589, 
+    590, 
+    591, 
+    592, 
+    593, 
+    594, 
+    595, 
+    596, 
+    597, 
+    598, 
+    599, 
+    600, 
+    601, 
+    614, 
+    615, 
+    617, 
+    619, 
+    620, 
+    622, 
+    624, 
+    625, 
+    627, 
+    629, 
+    630, 
+    632, 
+    634, 
+    635, 
+    637, 
+    639, 
+    640, 
+    642, 
+    644, 
+    645, 
+    647, 
+    649, 
+    650, 
+    652, 
+    654, 
+    655, 
+    657, 
+    659, 
+    660, 
+    662, 
+    664, 
+    665, 
+    667, 
+    669, 
+    670, 
+    672, 
+    674, 
+    675, 
+    677, 
+    679, 
+    680, 
+    681, 
+    682, 
+    683, 
+    686, 
+    687, 
+    688, 
+    689, 
+    690, 
+    691, 
+    692, 
+    693, 
+    694, 
+    695, 
+    696, 
+    697, 
+    698, 
+    699, 
+    700, 
+    701, 
+    702, 
+    715, 
+    716, 
+    718, 
+    720, 
+    721, 
+    723, 
+    725, 
+    726, 
+    728, 
+    730, 
+    731, 
+    733, 
+    735, 
+    736, 
+    738, 
+    740, 
+    741, 
+    743, 
+    745, 
+    746, 
+    748, 
+    750, 
+    751, 
+    753, 
+    755, 
+    756, 
+    758, 
+    760, 
+    761, 
+    763, 
+    765, 
+    766, 
+    768, 
+    770, 
+    771, 
+    773, 
+    775, 
+    776, 
+    778, 
+    780, 
+    781, 
+    782, 
+    785, 
+    786, 
+    787, 
+    788, 
+    789, 
+    790, 
+    791, 
+    792, 
+    793, 
+    794, 
+    795, 
+    796, 
+    797, 
+    798, 
+    799, 
+    800, 
+    801, 
+    814, 
+    815, 
+    817, 
+    819, 
+    820, 
+    822, 
+    824, 
+    825, 
+    827, 
+    829, 
+    830, 
+    832, 
+    834, 
+    835, 
+    837, 
+    839, 
+    840, 
+    842, 
+    844, 
+    845, 
+    847, 
+    849, 
+    850, 
+    852, 
+    854, 
+    855, 
+    857, 
+    859, 
+    860, 
+    862, 
+    864, 
+    865, 
+    867, 
+    869, 
+    870, 
+    872, 
+    874, 
+    875, 
+    877, 
+    879, 
+    880, 
+    881, 
+    884, 
+    885, 
+    886, 
+    887, 
+    888, 
+    889, 
+    890, 
+    891, 
+    892, 
+    893, 
+    894, 
+    895, 
+    896, 
+    897, 
+    898, 
+    899, 
+    900, 
+    913, 
+    914, 
+    916, 
+    918, 
+    919, 
+    921, 
+    923, 
+    924, 
+    926, 
+    928, 
+    929, 
+    931, 
+    933, 
+    934, 
+    936, 
+    938, 
+    939, 
+    941, 
+    943, 
+    944, 
+    946, 
+    948, 
+    949, 
+    951, 
+    953, 
+    954, 
+    956, 
+    958, 
+    959, 
+    961, 
+    963, 
+    964, 
+    966, 
+    968, 
+    969, 
+    971, 
+    973, 
+    974, 
+    976, 
+    978, 
+    979, 
+    980, 
+    983, 
+    984, 
+    985, 
+    986, 
+    987, 
+    988, 
+    989, 
+    990, 
+    991, 
+    992, 
+    993, 
+    994, 
+    995, 
+    996, 
+    997, 
+    998, 
+    999, 
+    1012, 
+    1013, 
+    1015, 
+    1017, 
+    1018, 
+    1020, 
+    1022, 
+    1023, 
+    1025, 
+    1027, 
+    1028, 
+    1030, 
+    1032, 
+    1033, 
+    1035, 
+    1037, 
+    1038, 
+    1040, 
+    1042, 
+    1043, 
+    1045, 
+    1047, 
+    1048, 
+    1050, 
+    1052, 
+    1053, 
+    1055, 
+    1057, 
+    1058, 
+    1060, 
+    1062, 
+    1063, 
+    1065, 
+    1067, 
+    1068, 
+    1070, 
+    1072, 
+    1073, 
+    1075, 
+    1077, 
+    1078, 
+    1079, 
+    1082, 
+    1083, 
+    1084, 
+    1085, 
+    1086, 
+    1087, 
+    1088, 
+    1089, 
+    1090, 
+    1091, 
+    1092, 
+    1093, 
+    1094, 
+    1095, 
+    1096, 
+    1097, 
+    1098, 
+    1099, 
+    1104, 
+    1105, 
+    1106, 
+    1107, 
+    1110, 
+    1111, 
+    1114, 
+    1115, 
+    1118, 
+    1119, 
+    1122, 
+    1123, 
+    1126, 
+    1127, 
+    1128, 
+    1129, 
+    1130, 
+    1131, 
+    1132, 
+    1133, 
+    1134, 
+    1135, 
+    1136, 
+    1137, 
+    1138, 
+    1139, 
+    1148, 
+    1149, 
+    1151, 
+    1153, 
+    1154, 
+    1156, 
+    1158, 
+    1159, 
+    1161, 
+    1163, 
+    1164, 
+    1166, 
+    1168, 
+    1169, 
+    1171, 
+    1173, 
+    1174, 
+    1176, 
+    1178, 
+    1179, 
+    1181, 
+    1183, 
+    1184, 
+    1186, 
+    1188, 
+    1189, 
+    1191, 
+    1193, 
+    1194, 
+    1195, 
+    1196, 
+    1197, 
+    1200, 
+    1201, 
+    1202, 
+    1203, 
+    1204, 
+    1205, 
+    1206, 
+    1207, 
+    1208, 
+    1209, 
+    1210, 
+    1211, 
+    1212, 
+    1213, 
+    1214, 
+    1215, 
+    1216, 
+    1225, 
+    1226, 
+    1228, 
+    1230, 
+    1231, 
+    1233, 
+    1235, 
+    1236, 
+    1238, 
+    1240, 
+    1241, 
+    1243, 
+    1245, 
+    1246, 
+    1248, 
+    1250, 
+    1251, 
+    1253, 
+    1255, 
+    1256, 
+    1258, 
+    1260, 
+    1261, 
+    1263, 
+    1265, 
+    1266, 
+    1268, 
+    1270, 
+    1271, 
+    1272, 
+    1275, 
+    1276, 
+    1277, 
+    1278, 
+    1279, 
+    1280, 
+    1281, 
+    1282, 
+    1283, 
+    1284, 
+    1285, 
+    1286, 
+    1287, 
+    1288, 
+    1289, 
+    1290, 
+    1291, 
+    1300, 
+    1301, 
+    1303, 
+    1305, 
+    1306, 
+    1308, 
+    1310, 
+    1311, 
+    1313, 
+    1315, 
+    1316, 
+    1318, 
+    1320, 
+    1321, 
+    1323, 
+    1325, 
+    1326, 
+    1328, 
+    1330, 
+    1331, 
+    1333, 
+    1335, 
+    1336, 
+    1338, 
+    1340, 
+    1341, 
+    1343, 
+    1345, 
+    1346, 
+    1347, 
+    1350, 
+    1351, 
+    1352, 
+    1353, 
+    1354, 
+    1355, 
+    1356, 
+    1357, 
+    1358, 
+    1359, 
+    1360, 
+    1361, 
+    1362, 
+    1363, 
+    1364, 
+    1365, 
+    1366, 
+    1375, 
+    1376, 
+    1378, 
+    1380, 
+    1381, 
+    1383, 
+    1385, 
+    1386, 
+    1388, 
+    1390, 
+    1391, 
+    1393, 
+    1395, 
+    1396, 
+    1398, 
+    1400, 
+    1401, 
+    1403, 
+    1405, 
+    1406, 
+    1408, 
+    1410, 
+    1411, 
+    1413, 
+    1415, 
+    1416, 
+    1418, 
+    1420, 
+    1421, 
+    1422, 
+    1425, 
+    1426, 
+    1427, 
+    1428, 
+    1429, 
+    1430, 
+    1431, 
+    1432, 
+    1433, 
+    1434, 
+    1435, 
+    1436, 
+    1437, 
+    1438, 
+    1439, 
+    1440, 
+    1441, 
+    1450, 
+    1451, 
+    1453, 
+    1455, 
+    1456, 
+    1458, 
+    1460, 
+    1461, 
+    1463, 
+    1465, 
+    1466, 
+    1468, 
+    1470, 
+    1471, 
+    1473, 
+    1475, 
+    1476, 
+    1478, 
+    1480, 
+    1481, 
+    1483, 
+    1485, 
+    1486, 
+    1488, 
+    1490, 
+    1491, 
+    1493, 
+    1495, 
+    1496, 
+    1497, 
+    1500, 
+    1501, 
+    1502, 
+    1503, 
+    1504, 
+    1505, 
+    1506, 
+    1507, 
+    1508, 
+    1509, 
+    1510, 
+    1511, 
+    1512
+  ], 
+  "heads": [[341, 0, 0], [665, 0, 0], [929, 0, 0]], 
+  "attrs": {"mxnet_version": ["int", 1201]}
+}
