@@ -10,6 +10,10 @@ The dataset can be downloaded from the following repositories:
 - Radar sequences years 2010 - 2019:
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3591404.svg)](https://doi.org/10.5281/zenodo.3591404)
 
+A NETCDF version of the radar sequences (not needed for the code in this repository) is available here:
+- Radar sequences years 2010 - 2019 (NETCDF):
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3866204.svg)](https://doi.org/10.5281/zenodo.3866204)
+
 All the code was developed and tested on Ubuntu 18.04 with python 3.6+.
 
 Create a new virtualenv (for example with `venv`):
