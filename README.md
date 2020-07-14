@@ -1,7 +1,11 @@
-TAASRAD19 Code release
+Code release for the paper "TAASRAD19, a high-resolution weather radar reflectivity dataset for precipitation nowcasting"
 ---
+Franch, G., Maggio, V., Coviello, L. et al. TAASRAD19, a high-resolution weather radar reflectivity dataset for precipitation nowcasting. Sci Data 7, 234 (2020).
 
-Code for data generation, processing, modeling and visualization for TAASRAD19 dataset.
+https://doi.org/10.1038/s41597-020-0574-8
+
+
+The code includes the scripts for sequence extraction, a deep learning model for precipitation nowcasting and an online visualization build on TAASRAD19 dataset.
 The dataset can be downloaded from the following repositories:
 - Radar scans years 2010 - 2016:
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3577451.svg)](https://doi.org/10.5281/zenodo.3577451)
