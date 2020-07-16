@@ -22,8 +22,8 @@ All the code was developed and tested on Ubuntu 18.04 with python 3.6+.
 
 Create a new virtualenv (for example with `venv`):
 ```
-python3 -m venv venv 
-source activate venv/bin/ctivate
+python3 -m venv .venv 
+source .venv/bin/ctivate
 ```
 
 Install all required packages in the virtualenv:
