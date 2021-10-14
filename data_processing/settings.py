@@ -37,8 +37,8 @@ MIN_RUN_SIZE = 25
 IMG_SIZE = 480
 CROP_SIZE = 480
 SKIP_ROWS = 6
-START_DATE = datetime.date(year=2010, month=11, day=1)
-END_DATE = datetime.date(year=2019, month=10, day=31)
+START_DATE = datetime.date(year=2010, month=6, day=1)
+END_DATE = datetime.date(year=2020, month=12, day=31)
 PARSE_OFFSET = (IMG_SIZE - CROP_SIZE) // 2
 PARSED_TYPE = np.float16
 

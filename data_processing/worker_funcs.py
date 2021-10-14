@@ -5,6 +5,7 @@ import tarfile
 import h5py
 import numpy as np
 import pandas as pd
+from scipy.signal import convolve2d
 
 from settings import (
     CROP_SIZE,
@@ -22,12 +23,97 @@ class BadAsciiException(Exception):
     """Raised when the shape size is unexpected or the ascii file is malformed"""
 
 
+def clean(
+    arr: np.ndarray,
+    lowpass_threshold=7,  # 7 dbZ = > 0.1 mm/h
+    highpass_threshold=40,
+    highpass_neighbors=30,
+    midpass_threshold=15,
+    midpass_neighbors=15,
+) -> np.ndarray:
+    # lowpass filter, remove all signal where dbz < 6
+    arr[arr <= lowpass_threshold] = 0
+
+    # remove high values isolated noise (dbz>40) using a 7x7 conv
+    # +-------------+
+    # |1 1 1 1 1 1 1|
+    # |1 1 1 1 1 1 1|
+    # |1 1 1 1 1 1 1|
+    # |1 1 1 0 1 1 1|
+    # |1 1 1 1 1 1 1|
+    # |1 1 1 1 1 1 1|
+    # |1 1 1 1 1 1 1|
+    # +-------------+
+    k_7x7 = np.ones((7, 7))
+    k_7x7[3, 3] = 0
+    neighbors_large = convolve2d(arr.astype(np.bool), k_7x7, mode="same")
+    arr[(arr > highpass_threshold) & (neighbors_large < highpass_neighbors)] = 0
+
+    # remove mid values isolated noise (dbz>15) using a 5x5 conv
+    # +---------+
+    # |1 1 1 1 1|
+    # |1 1 1 1 1|
+    # |1 1 0 1 1|
+    # |1 1 1 1 1|
+    # |1 1 1 1 1|
+    # +---------+
+    k_5x5 = np.ones((5, 5))
+    k_5x5[2, 2] = 0
+    neighbors_mid = convolve2d(arr.astype(np.bool), k_5x5, mode="same")
+    arr[(arr > midpass_threshold) & (neighbors_mid < midpass_neighbors)] = 0
+
+    # remove remaining isolated noise (less than 4 neighbors with dbz>0) using a 3x3 conv
+    # +-----+
+    # |1 1 1|
+    # |1 0 1|
+    # |1 1 1|
+    # +-----+
+    k_3x3 = np.ones((3, 3))
+    k_3x3[1, 1] = 0
+    neighbors_small = convolve2d(arr.astype(np.bool), k_3x3, mode="same")
+    arr[neighbors_small < 4] = 0
+
+    # smooth noise inside rainy patches:
+    # if the pixel is dbz>20 and the average difference
+    # between the pixel and the surrounding is >10dbz (80)
+    # then replace the pixel value with the average of the surrounding pixels
+    # we apply this correction only in the central part 340 x 340 of the image
+    # to avoid touching the radar circle borders
+    # +--------+
+    # |-1 -1 -1|
+    # |-1  8 -1|
+    # |-1 -1 -1|
+    # +--------+
+    k_deriv = -1 * np.ones((3, 3))
+    k_deriv[1, 1] = 8
+    convolved_deriv = convolve2d(arr, k_deriv, mode="same")
+    mask_deriv = np.zeros(arr.shape)
+    mask_deriv[(arr > 20) & (convolved_deriv > 80)] = 1
+
+    # apply only to the central 340 x 340 area to avoid touching the radar circle borders
+    mask_deriv[:70] = 0
+    mask_deriv[-70:] = 0
+    mask_deriv[:, :70] = 0
+    mask_deriv[:, -70:] = 0
+
+    # compute surronding pixel average
+    avg_3x3 = convolve2d(arr, k_3x3, mode="same") / 8
+
+    # replace pixels with the surrounding average
+    condlist = [mask_deriv == 1, arr > 0]
+    choicelist = [avg_3x3, arr]
+    arr = np.select(condlist, choicelist)
+
+    return arr
+
+
 def parse_ascii(
     fileobj,
     offset=PARSE_OFFSET,
     scan_size=IMG_SIZE,
     skip_header=SKIP_ROWS,
     output_type=PARSED_TYPE,
+    do_clean=True
 ):
     try:
         arr = np.genfromtxt(
@@ -47,7 +133,10 @@ def parse_ascii(
         if output_type:
             arr = arr.astype(output_type)
 
-        return arr
+        if do_clean:
+            arr = clean(arr)
+
+        return np.around(arr, 1)
     except:
         raise BadAsciiException("{} is broken".format(fileobj.name))
     finally:
@@ -149,6 +238,7 @@ def identify_runs(f, scans, tags):
 
 
 def worker(args):
+
     day, radar_directory, tags = args
     path = os.path.join(radar_directory, str(day.year), day.strftime("%Y%m%d.tar"))
     if os.path.exists(path):
@@ -184,15 +274,21 @@ def worker(args):
                             "tags": tags,
                         }
                     )
-                    hdf_archive.create_dataset(
+                    dset = hdf_archive.create_dataset(
                         "{}".format(i),
                         chunks=(1, CROP_SIZE, CROP_SIZE),
                         shuffle=True,
                         fletcher32=True,
                         compression="gzip",
                         compression_opts=9,
+                        dtype=PARSED_TYPE,
                         data=run,
                     )
+                    dset.attrs["start_datetime"] = str(periods[0])
+                    dset.attrs["end_datetime"] = str(periods[1])
+                    dset.attrs["run_length"] = run.shape[0]
+                    dset.attrs["avg_cell_value"] = avg_value
+                    dset.attrs["tags"] = str(tags)
                     i += 1
                 hdf_archive.flush()
             return metadata
